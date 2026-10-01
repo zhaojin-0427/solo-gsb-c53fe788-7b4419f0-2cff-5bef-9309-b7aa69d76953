@@ -1,0 +1,11 @@
+services:
+  signal-planner:
+    build: .
+    image: signal-planner:latest
+    container_name: signal-planner
+    ports:
+      - "8000:8000"
+    environment:
+      # CP-SAT 单次求解的时间上限（秒）
+      SOLVER_TIME_LIMIT_SECONDS: "10"
+    restart: unless-stopped
