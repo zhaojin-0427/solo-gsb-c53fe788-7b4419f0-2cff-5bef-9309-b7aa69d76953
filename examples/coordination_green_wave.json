@@ -1,0 +1,103 @@
+{
+  "intersections": [
+    {
+      "id": "A1",
+      "phases": [
+        {
+          "order": 1,
+          "flows": [
+            "EW"
+          ],
+          "green": 20,
+          "all_red_after": 10
+        },
+        {
+          "order": 2,
+          "flows": [
+            "NS"
+          ],
+          "green": 20,
+          "all_red_after": 10
+        }
+      ],
+      "cycle_length": 60,
+      "phase_count": 2
+    },
+    {
+      "id": "A2",
+      "phases": [
+        {
+          "order": 1,
+          "flows": [
+            "EW"
+          ],
+          "green": 20,
+          "all_red_after": 10
+        },
+        {
+          "order": 2,
+          "flows": [
+            "NS"
+          ],
+          "green": 20,
+          "all_red_after": 10
+        }
+      ],
+      "cycle_length": 60,
+      "phase_count": 2
+    },
+    {
+      "id": "A3",
+      "phases": [
+        {
+          "order": 1,
+          "flows": [
+            "EW"
+          ],
+          "green": 20,
+          "all_red_after": 10
+        },
+        {
+          "order": 2,
+          "flows": [
+            "NS"
+          ],
+          "green": 20,
+          "all_red_after": 10
+        }
+      ],
+      "cycle_length": 60,
+      "phase_count": 2
+    }
+  ],
+  "travel_times": [
+    {
+      "min_seconds": 60,
+      "max_seconds": 60
+    },
+    {
+      "min_seconds": 60,
+      "max_seconds": 60
+    }
+  ],
+  "routes": [
+    {
+      "id": "east-west-arterial",
+      "weight": 10,
+      "flows": [
+        "EW",
+        "EW",
+        "EW"
+      ]
+    },
+    {
+      "id": "north-south-cross",
+      "weight": 5,
+      "flows": [
+        "NS",
+        "NS",
+        "NS"
+      ]
+    }
+  ]
+}

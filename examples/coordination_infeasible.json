@@ -1,0 +1,28 @@
+{
+  "intersections": [
+    {
+      "id": "C1",
+      "phases": [
+        {"order": 1, "flows": ["EW"], "green": 20, "all_red_after": 10},
+        {"order": 2, "flows": ["NS"], "green": 20, "all_red_after": 10}
+      ],
+      "cycle_length": 60,
+      "phase_count": 2
+    },
+    {
+      "id": "C2",
+      "phases": [
+        {"order": 1, "flows": ["EW"], "green": 10, "all_red_after": 10},
+        {"order": 2, "flows": ["NS"], "green": 30, "all_red_after": 10}
+      ],
+      "cycle_length": 60,
+      "phase_count": 2
+    }
+  ],
+  "travel_times": [
+    {"min_seconds": 20, "max_seconds": 40}
+  ],
+  "routes": [
+    {"id": "ew-route", "weight": 10, "flows": ["EW", "EW"]}
+  ]
+}

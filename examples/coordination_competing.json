@@ -1,0 +1,31 @@
+{
+  "intersections": [
+    {
+      "id": "B1",
+      "phases": [
+        {"order": 1, "flows": ["EB"], "green": 10, "all_red_after": 5},
+        {"order": 2, "flows": ["LT"], "green": 10, "all_red_after": 5},
+        {"order": 3, "flows": ["NB"], "green": 10, "all_red_after": 10}
+      ],
+      "cycle_length": 50,
+      "phase_count": 3
+    },
+    {
+      "id": "B2",
+      "phases": [
+        {"order": 1, "flows": ["WB"], "green": 10, "all_red_after": 10},
+        {"order": 2, "flows": ["LT"], "green": 10, "all_red_after": 10},
+        {"order": 3, "flows": ["SB"], "green": 10, "all_red_after": 0}
+      ],
+      "cycle_length": 50,
+      "phase_count": 3
+    }
+  ],
+  "travel_times": [
+    {"min_seconds": 5, "max_seconds": 5}
+  ],
+  "routes": [
+    {"id": "major-arterial", "weight": 10, "flows": ["EB", "SB"]},
+    {"id": "minor-cross",    "weight": 5,  "flows": ["NB", "WB"]}
+  ]
+}
