@@ -4,7 +4,8 @@ import os
 
 from fastapi import FastAPI
 
-from .models import PlanRequest, PlanResponse
+from .coordination import coordinate
+from .models import CoordinationRequest, CoordinationResponse, PlanRequest, PlanResponse
 from .solver import solve
 
 SOLVER_TIME_LIMIT_SECONDS = float(
@@ -12,12 +13,11 @@ SOLVER_TIME_LIMIT_SECONDS = float(
 )
 
 app = FastAPI(
-    title="路口信号周期编排服务",
+    title="路口信号周期编排与绿波协调服务",
     description=(
-        "给定车流绿灯区间、无向冲突对与有向清空时间，联合决定相位分组、"
-        "环形顺序与整数秒时长，在周期上限内先最小化周期总秒数、再最小化相位数。"
+        "支持单路口信号周期编排，以及多路口同周期方案的绿波相对偏移协调。"
     ),
-    version="1.0.0",
+    version="1.1.0",
 )
 
 
@@ -34,5 +34,16 @@ def create_plan(request: PlanRequest) -> PlanResponse:
         conflict_pairs=request.conflicts,
         raw_clearances=request.clearances,
         cycle_limit=request.cycle_limit,
+        time_limit_seconds=SOLVER_TIME_LIMIT_SECONDS,
+    )
+
+
+@app.post("/coordination", response_model=CoordinationResponse)
+def create_coordination(request: CoordinationRequest) -> CoordinationResponse:
+    """协调多个同周期路口的相对绿波偏移。非法输入返回 422。"""
+    return coordinate(
+        plans=request.plans,
+        travel_intervals=request.travel_intervals,
+        routes=request.routes,
         time_limit_seconds=SOLVER_TIME_LIMIT_SECONDS,
     )
